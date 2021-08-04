@@ -1,11 +1,35 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --poppins: "Poppins", sans-serif;
+  --black: #1a1d21;
+  --primary: #11033f;
+  --blue: #2f91dd;
+  --green: #2bac76;
+  --white: #ffffff;
+  --grey: #b4b4b4;
+  --pink: #f0187c;
+  --headline1: 600 1.75rem / normal "Poppins", sans-serif;
+  --headline2: 600 1.5rem / normal "Poppins", sans-serif;
+  --headline3: 600 1.25rem/1.375rem "Poppins", sans-serif;
+  --button: 400 0.875rem/1rem "Poppins", sans-serif;
+  --body1-regular: 400 1rem/1.5rem "Poppins", sans-serif;
+  --body1-bold: 700 1rem/1.5rem "Poppins", sans-serif;
+  --body2-bold: 700 0.875rem/1.5rem "Poppins", sans-serif;
+  --body2-regular: 400 0.875rem/1.5rem "Poppins", sans-serif;
+  --caption-regular: 400 0.75rem/1rem "Poppins", sans-serif;
+  --caption-bold: 600 0.75rem/1rem "Poppins", sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+  color: var(--white);
+  background-color: var(--primary);
+  font-family: var(--poppins);
+}
+
+html,
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +37,13 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button:active {
+  transform: scale(0.98);
 }

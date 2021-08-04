@@ -1,3 +1,14 @@
+<div align="center">
+<img width="120px"  src="https://raw.githubusercontent.com/no-te-rindas/logo/main/Logo/LeonidasEsteban-destello-envolvente-cuadrada.png" />
+</div>
+
+# Slacker
+
+Trabaja de manera coordinada y toma decisiones más rápido al reunir toda la comunicación laboral en un solo lugar.
+
+<img width="120px"  src="./public/design/slacker-desktop.jpg" />
+</div>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
