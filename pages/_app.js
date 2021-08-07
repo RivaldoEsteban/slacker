@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:url" content="https://slacker-xi.vercel.app/" />
         <meta
           property="og:image"
-          content="https://github.com/RivaldoEsteban/Spotifu-react/blob/master/public/images/cover/spotifu-opengraph.jpg?raw=true"
+          content="https://api.vercel.com/now/files/8646d4b0032d5e06494d3e9e0d0fae9e80d139a5/opengraph.png"
         />
         <meta
           property="og:description"
