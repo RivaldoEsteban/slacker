@@ -44,6 +44,6 @@ button {
   border: none;
 }
 
-button:active {
+/* button:active {
   transform: scale(0.98);
-}
+} */

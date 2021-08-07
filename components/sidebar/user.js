@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
+import User from "../user/user";
 const UserStyled = styled.div`
   display: flex;
   align-items: center;
@@ -10,28 +10,39 @@ const UserStyled = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  height: 3rem;
   background: #44337c;
+  padding: 0 1rem;
+  box-sizing: border-box;
   p {
     margin: 0;
     text-transform: capitalize;
   }
+  img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 `;
 
-function User() {
-  const [userImage, setUserImage] = useState();
-  const [userName, setUserName] = useState();
+function CurrentUser() {
+  const [background, setBackground] = useState();
+  const [userName, setUserName] = useState("rivaldo");
   useEffect(() => {
-    setUserImage(localStorage.userImage);
+    console.log(localStorage);
+    setBackground(localStorage.background);
     setUserName(localStorage.userName.toLowerCase());
   }, []);
-  console.log(userName);
   return (
     <UserStyled>
-      <img src={userImage} alt="" />
-      <p>{userName}</p>
+      <User currentName={userName} backgroundColor={background} />
+      {/* <img
+        src={typeof userImage === "string" ? userImage : "./icons/user.svg"}
+        alt="avatar"
+      />
+      <p>{userName}</p> */}
     </UserStyled>
   );
 }
 
-export default User;
+export default CurrentUser;

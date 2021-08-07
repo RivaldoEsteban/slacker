@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+/* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../../pages/_app";
 
 const MessagesStyled = styled.div`
   h3 {
@@ -25,56 +28,84 @@ const MessagesStyled = styled.div`
   }
 `;
 
-function Messages() {
+const contacts = [
+  {
+    avatar: "./images/leo.svg",
+    name: "Leonidas",
+    id: "contact1",
+  },
+  {
+    avatar: "./images/cris.svg",
+    name: "uxcristopher",
+    id: "contact2",
+  },
+  {
+    avatar: "./images/sandy.svg",
+    name: "Sandy",
+    id: "contact3",
+  },
+  {
+    avatar: "./images/miguel.svg",
+    name: "Miguel",
+    id: "contact4",
+  },
+  {
+    avatar: "./images/carlos.svg",
+    name: "charliwall",
+    id: "contact5",
+  },
+];
+
+function Messages({
+  setChannelActive,
+  channelActive,
+  sidebarActive,
+  currentChaneel,
+  widthPage,
+}) {
+  const context = useContext(Context);
+  if (widthPage > 851) {
+    sidebarActive(true);
+    currentChaneel(true);
+  }
+  function handleContact(contact) {
+    setChannelActive(contact.name);
+    context.channel.setChannelActive({
+      image: contact.avatar,
+      channelActive: contact.name,
+    });
+    if (widthPage < 851) {
+      sidebarActive(false);
+      currentChaneel(true);
+    }
+  }
+
   return (
     <MessagesStyled>
       <h3>Mensajes directos</h3>
       <div>
-        <div className="contacts">
-          <img
-            src="./images/leo.svg"
-            alt="leo image"
-            width="100"
-            height="100"
-          />
-          <p>Leonidas</p>
-        </div>
-        <div className="contacts">
-          <img
-            src="./images/cris.svg"
-            alt="cris image"
-            width="100"
-            height="100"
-          />
-          <p>uxcristopher</p>
-        </div>
-        <div className="contacts">
-          <img
-            src="./images/sandy.svg"
-            alt="sandy image"
-            width="100"
-            height="100"
-          />
-          <p>Sandy</p>
-        </div>
-        <div className="contacts">
-          <img
-            src="./images/miguel.svg"
-            alt="migule image"
-            width="100"
-            height="100"
-          />
-          <p>Miguel</p>
-        </div>
-        <div className="contacts">
-          <img
-            src="./images/carlos.svg"
-            alt="carlos image"
-            width="100"
-            height="100"
-          />
-          <p>charliwall</p>
-        </div>
+        {contacts.map((contact) => {
+          return (
+            <div
+              className="contacts"
+              key={contact.name}
+              onClick={() => {
+                handleContact(contact);
+              }}
+              className={
+                channelActive === contact.name ? "contacts active" : "contacts"
+              }
+            >
+              <img
+                src={contact.avatar}
+                alt={contact.name}
+                width="100"
+                height="100"
+              />
+              <p>{contact.name}</p>
+            </div>
+          );
+        })}
       </div>
     </MessagesStyled>
   );

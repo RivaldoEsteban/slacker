@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../../pages/_app";
 
 const ChannelsStyled = styled.div`
   h3 {
@@ -10,9 +11,6 @@ const ChannelsStyled = styled.div`
     font: var(--body2-regular);
     padding: 0.5rem 1rem;
     margin: 0;
-  }
-  .active {
-    background: var(--pink);
   }
 `;
 
@@ -35,12 +33,31 @@ const channels = [
   },
 ];
 
-function Channels() {
-  const [channelActive, setChannelActive] = useState("channel1");
-
-  function handleChangeChannel(channel) {
-    setChannelActive(channel.id);
+function Channels({
+  setChannelActive,
+  channelActive,
+  sidebarActive,
+  currentChaneel,
+  widthPage,
+}) {
+  const context = useContext(Context);
+  if (widthPage > 851) {
+    sidebarActive(true);
+    currentChaneel(true);
   }
+  function handleChangeChannel(channel) {
+    setChannelActive(channel.channel);
+    context.channel.setChannelActive({
+      image: "",
+      channelActive: channel.channel,
+    });
+
+    if (widthPage < 851) {
+      sidebarActive(false);
+      currentChaneel(true);
+    }
+  }
+  console.log(channelActive);
   return (
     <ChannelsStyled>
       <h3>Canales</h3>
@@ -53,7 +70,7 @@ function Channels() {
               }}
               key={channel.id}
               id={channel.id}
-              className={channelActive === channel.id ? "active" : ""}
+              className={channelActive === channel.channel ? "active" : ""}
             >
               # {channel.channel}
             </p>
