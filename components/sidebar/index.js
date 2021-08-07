@@ -21,7 +21,6 @@ const IndexStyled = styled.div`
   .chats {
     flex: 1;
     overflow: auto;
-    border: 1px solid red;
   }
 
   @media (max-width: 850px) {
