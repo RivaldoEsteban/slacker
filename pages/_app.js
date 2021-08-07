@@ -23,6 +23,20 @@ function MyApp({ Component, pageProps }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
         <title>Slacker</title>
+        <meta
+          property="og:title"
+          content="Slacker|| Conectate y chatea con tus amigos en tiempo real"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://slacker-xi.vercel.app/" />
+        <meta
+          property="og:image"
+          content="https://github.com/RivaldoEsteban/Spotifu-react/blob/master/public/images/cover/spotifu-opengraph.jpg?raw=true"
+        />
+        <meta
+          property="og:description"
+          content="Trabaja de manera coordinada y toma decisiones más rápido al reunir toda la comunicación laboral en un solo lugar."
+        />
         <script src="https://slacker-rivaldoesteban.herokuapp.com/socket.io/socket.io.js"></script>
       </Head>
       <Component {...pageProps} />
