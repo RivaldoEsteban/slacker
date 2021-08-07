@@ -6,10 +6,6 @@ const UserStyled = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
   background: #44337c;
   padding: 0 1rem;
   box-sizing: border-box;

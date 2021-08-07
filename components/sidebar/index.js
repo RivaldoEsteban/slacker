@@ -11,7 +11,6 @@ const IndexStyled = styled.div`
   /* border: 1px solid red; */
   border-left: 1px solid #54455e;
   border-right: 1px solid #54455e;
-
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -19,6 +18,12 @@ const IndexStyled = styled.div`
   .active {
     background: var(--pink);
   }
+  .chats {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid red;
+  }
+
   @media (max-width: 850px) {
     grid-area: channelActive;
   }
@@ -34,20 +39,22 @@ function Sidebar({ sidebarActive, currentChaneel, widthPage, setHiddenLogo }) {
   return (
     <IndexStyled>
       <Channelname widthPage={widthPage} setHiddenLogo={setHiddenLogo} />
-      <Channels
-        channelActive={channelActive}
-        setChannelActive={setChannelActive}
-        sidebarActive={sidebarActive}
-        currentChaneel={currentChaneel}
-        widthPage={widthPage}
-      />
-      <Messages
-        channelActive={channelActive}
-        setChannelActive={setChannelActive}
-        sidebarActive={sidebarActive}
-        currentChaneel={currentChaneel}
-        widthPage={widthPage}
-      />
+      <div className="chats">
+        <Channels
+          channelActive={channelActive}
+          setChannelActive={setChannelActive}
+          sidebarActive={sidebarActive}
+          currentChaneel={currentChaneel}
+          widthPage={widthPage}
+        />
+        <Messages
+          channelActive={channelActive}
+          setChannelActive={setChannelActive}
+          sidebarActive={sidebarActive}
+          currentChaneel={currentChaneel}
+          widthPage={widthPage}
+        />
+      </div>
       <CurrentUser />
     </IndexStyled>
   );

@@ -15,19 +15,11 @@ const LogoStyled = styled.div`
     height: 100%;
   }
   @media (max-width: 600px) {
-    max-height: 38px;
-    padding: 0;
+    display: none;
   }
 `;
 
-function Logo({ widthPage, setHiddenLogo }) {
-  console.log(widthPage);
-  if (widthPage < 601) {
-    setHiddenLogo(false);
-  }
-  if (widthPage > 601) {
-    setHiddenLogo(true);
-  }
+function Logo({}) {
   return (
     <LogoStyled>
       <img src="./icons/logo.svg" alt="logo" />
