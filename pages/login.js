@@ -82,6 +82,12 @@ const LoginStyled = styled.div`
     border-radius: 50%;
     cursor: pointer;
   }
+  @media (max-width: 500px) {
+    .form-container {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
 `;
 const background = [
   {
